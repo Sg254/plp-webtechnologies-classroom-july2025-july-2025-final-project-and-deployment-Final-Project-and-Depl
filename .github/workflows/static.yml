@@ -1,43 +1,96 @@
-# Simple workflow for deploying static content to GitHub Pages
-name: Deploy static content to Pages
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>High Integrity Carbon Credits — Home</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <meta name="description" content="High Integrity Carbon Credits — transparent carbon projects, verification, and impact reporting.">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="logo" href="index.html">HICC</a>
+      <nav id="main-nav" class="nav">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="projects.html">Projects</a>
+        <a href="impact.html">Impact</a>
+        <a href="contact.html" class="btn-link">Contact</a>
+      </nav>
+      <button id="nav-toggle" class="nav-toggle" aria-label="Toggle navigation">☰</button>
+    </div>
+  </header>
 
-on:
-  # Runs on pushes targeting the default branch
-  push:
-    branches: ["main"]
+  <main>
+    <section class="hero">
+      <div class="container hero-inner">
+        <h1>High-integrity carbon credits you can trust</h1>
+        <p>We verify, track, and market carbon removal and avoidance projects with full transparency and impact reporting.</p>
+        <div class="hero-ctas">
+          <a class="btn primary" href="projects.html">View Projects</a>
+          <a class="btn ghost" href="about.html">How it works</a>
+        </div>
+      </div>
+    </section>
 
-  # Allows you to run this workflow manually from the Actions tab
-  workflow_dispatch:
+    <section class="features container">
+      <article class="feature">
+        <h3>Third-party verification</h3>
+        <p>All projects audited to global standards and public registries.</p>
+      </article>
+      <article class="feature">
+        <h3>Traceable tracking</h3>
+        <p>Each credit produced has full provenance and a public ledger entry.</p>
+      </article>
+      <article class="feature">
+        <h3>Community first</h3>
+        <p>Projects deliver local economic benefits and ecological gain.</p>
+      </article>
+    </section>
 
-# Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
-permissions:
-  contents: read
-  pages: write
-  id-token: write
+    <section class="featured-projects container">
+      <h2>Featured Projects</h2>
+      <div class="project-grid" id="project-grid">
+        <!-- JS will populate sample cards -->
+      </div>
+      <div class="center">
+        <a class="btn" href="projects.html">See all projects</a>
+      </div>
+    </section>
 
-# Allow only one concurrent deployment, skipping runs queued between the run in-progress and latest queued.
-# However, do NOT cancel in-progress runs as we want to allow these production deployments to complete.
-concurrency:
-  group: "pages"
-  cancel-in-progress: false
+    <section class="newsletter container">
+      <div class="newsletter-inner">
+        <h3>Stay informed</h3>
+        <p>Get quarterly impact reports and new project listings.</p>
+        <form id="newsletter-form" class="small-form" novalidate>
+          <input type="email" id="nl-email" name="email" required placeholder="Your email">
+          <button class="btn small" type="submit">Subscribe</button>
+        </form>
+        <p id="nl-msg" class="form-msg" aria-live="polite"></p>
+      </div>
+    </section>
+  </main>
 
-jobs:
-  # Single deploy job since we're just deploying
-  deploy:
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-      - name: Setup Pages
-        uses: actions/configure-pages@v5
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
-        with:
-          # Upload entire repository
-          path: '.'
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v4
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div>
+        <a class="logo" href="index.html">HICC</a>
+        <p>Transparent carbon credits — verified & auditable.</p>
+      </div>
+      <nav class="footer-nav">
+        <a href="about.html">About</a>
+        <a href="projects.html">Projects</a>
+        <a href="impact.html">Impact</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </div>
+    <div class="footer-bottom container">
+      <small>© <span id="year"></span> HICC. All rights reserved.</small>
+    </div>
+  </footer>
+
+  <script src="js/script.js" defer></script>
+</body>
+</html>
+
